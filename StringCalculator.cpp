@@ -3,6 +3,10 @@
  int StringCalculator::add(string input){
 int sum = 0;
     for (char c : input) {
+     if(checkIfNegativeNumber)
+     {
+      cout<<"negative numbers not allowed";
+     }
             sum += convertToDigit(c);
 
     }   
@@ -10,18 +14,18 @@ int sum = 0;
 }
 
 int StringCalculator::convertToDigit(char c) {
-    if (std::isdigit(c) && c>0) {
+    if (std::isdigit(c)) {
         return c - '0';
     }
     return 0;
 }
 
-// int StringCalculator::checkIfNegativeNumber(char c){
-//  if(c<0){
-//   return 0;
-//  }
-//  return c;
-// }
+int StringCalculator::checkIfNegativeNumber(char c){
+ if(c<0){
+  return 1;
+ }
+ return 0;
+}
 
 // bool StringCalculator::inRange(char c){
 //     if(c>0 && c<1000){
