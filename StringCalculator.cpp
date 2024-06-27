@@ -3,7 +3,7 @@
  int StringCalculator::add(string input){
 int sum = 0;
     for (char c : input) {
-     if(checkIfNegativeNumber)
+     if(checkIfNegativeNumber == true)
      {
       cout<<"negative numbers not allowed";
      }
