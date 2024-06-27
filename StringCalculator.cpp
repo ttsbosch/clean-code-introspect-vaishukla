@@ -1,14 +1,16 @@
 #include "StringCalculator.h"
+#include <stdexcept>
 
 int StringCalculator::add(string input){
 int sum = 0;
     for (char c : input) {
      if(checkIfNegativeNumber(c))
      {
-      cout<<"negative numbers not allowed";
-      return -1;
+      throw std::invalid_argument("Negative integer not allowed");
      }
+        else{
             sum += convertToDigit(c);
+        }
 
     }   
     return sum;
