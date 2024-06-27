@@ -3,10 +3,9 @@
 
 using namespace std;
 class StringCalculator{
-private:
-int convertToDigit(char c);
-//bool inRange(char c);
-bool checkIfNegativeNumber(char c);
+// int convertToDigit(char c);
+// //bool inRange(char c);
+// bool checkIfNegativeNumber(char c);
 public:
-int add(string input);
+int add(const string& input);
 };
