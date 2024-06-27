@@ -1,39 +1,47 @@
 #include "StringCalculator.h"
 #include <stdexcept>
 
-int StringCalculator::add(string input){
-int sum = 0;
-    for (char c : input) {
-     if(checkIfNegativeNumber(c))
-     {
-      throw std::invalid_argument("Negative integer not allowed");
-     }
-        else{
-            sum += convertToDigit(c);
+class StringCalculator {
+public:
+    int add(const std::string& input) {
+        if (input.empty()) {
+            return 0;
         }
 
-    }   
-    return sum;
-}
+        int sum = 0;
+        std::string delimiter = ",";
+        std::string numbers = input;
 
-int StringCalculator::convertToDigit(char c) {
-    if (std::isdigit(c)) {
-        return c - '0';
+        if (input.substr(0, 2) == "//") {
+            delimiter = input.substr(2, 1);
+            numbers = input.substr(4);
+        }
+
+        size_t pos = 0;
+        while ((pos = numbers.find(delimiter)) != std::string::npos) {
+            std::string number = numbers.substr(0, pos);
+            int num = std::stoi(number);
+
+            if (num < 0) {
+                throw std::runtime_error("Negative numbers not allowed");
+            }
+
+            if (num <= 1000) {
+                sum += num;
+            }
+
+            numbers.erase(0, pos + delimiter.length());
+        }
+
+        int lastNumber = std::stoi(numbers);
+        if (lastNumber < 0) {
+            throw std::runtime_error("Negative numbers not allowed");
+        }
+
+        if (lastNumber <= 1000) {
+            sum += lastNumber;
+        }
+
+        return sum;
     }
-    return 0;
-}
-
-bool StringCalculator::checkIfNegativeNumber(char c){
- if(c<0){
-  return true;
- }
- return false;
-}
-
-// bool StringCalculator::inRange(char c){
-//     if(c>0 && c<1000){
-//         return true;
-//     }
-//     return false;
-// }
-
+};
