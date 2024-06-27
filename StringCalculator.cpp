@@ -1,9 +1,8 @@
 #include "StringCalculator.h"
 #include <stdexcept>
 
-class StringCalculator {
-public:
-    int add(const std::string& input) {
+
+    int StringCalculator::add(const std::string& input) {
         if (input.empty()) {
             return 0;
         }
@@ -44,4 +43,3 @@ public:
 
         return sum;
     }
-};
