@@ -11,9 +11,16 @@ int sum = 0;
 }
 
 int StringCalculator::convertToDigit(char c) {
-    if (std::isdigit(c) && c > 0 && c < 1000) {
+    if (std::isdigit(c) && inRange(c)) {
         return c - '0';
     }
     return 0;
+}
+
+bool StringCalculator::inRange(char c){
+    if(c>0 && c<1000){
+        return true;
+    }
+    return false;
 }
 
