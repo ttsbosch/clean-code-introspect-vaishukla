@@ -20,11 +20,11 @@ int StringCalculator::convertToDigit(char c) {
     return 0;
 }
 
-int StringCalculator::checkIfNegativeNumber(char c){
+bool StringCalculator::checkIfNegativeNumber(char c){
  if(c<0){
-  return 1;
+  return true;
  }
- return 0;
+ return false;
 }
 
 // bool StringCalculator::inRange(char c){
