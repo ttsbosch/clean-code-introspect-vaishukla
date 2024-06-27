@@ -45,7 +45,7 @@
         }
  }
 
-int checkRange(int checkNumber){
+int StringCalculator::checkRange(int checkNumber){
     if(checkNumber <=1000){
         return checkNumber;
     }
