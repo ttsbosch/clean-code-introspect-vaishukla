@@ -3,6 +3,8 @@
 
 using namespace std;
 class StringCalculator{
-    public:
-    int add(string input);
+int checkRange(int checkNumber);
+void checkNegative(int numbers);
+public:
+int add(const string& input);
 };
