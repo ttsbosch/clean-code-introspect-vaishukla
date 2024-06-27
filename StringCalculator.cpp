@@ -34,10 +34,7 @@
 
         int lastNumber = std::stoi(numbers);
         checkNegative(lastNumber);
-
-        if (lastNumber <= 1000) {
-            sum += lastNumber;
-        }
+        sum += checkRange(lastNumber);
 
         return sum;
     }
@@ -47,3 +44,10 @@
             throw std::runtime_error("Negative numbers not allowed");
         }
  }
+
+int checkRange(int checkNumber){
+    if(checkNumber <=1000){
+        return checkNumber;
+    }
+    return 0;
+}
