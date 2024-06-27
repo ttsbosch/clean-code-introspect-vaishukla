@@ -3,8 +3,9 @@
 
 using namespace std;
 class StringCalculator{
+private:
+int convertToDigit(char c);
+//bool inRange(char c);
 public:
 int add(string input);
-int convertToDigit(char c);
-bool inRange(char c);
 };
