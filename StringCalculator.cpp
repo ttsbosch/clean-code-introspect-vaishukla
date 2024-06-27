@@ -33,9 +33,7 @@
         }
 
         int lastNumber = std::stoi(numbers);
-        if (lastNumber < 0) {
-            throw std::runtime_error("Negative numbers not allowed");
-        }
+        checkNegative(lastNumber);
 
         if (lastNumber <= 1000) {
             sum += lastNumber;
@@ -43,3 +41,9 @@
 
         return sum;
     }
+
+ void StringCalculator::checkNegative(int numbers){
+             if (numbers < 0) {
+            throw std::runtime_error("Negative numbers not allowed");
+        }
+ }
