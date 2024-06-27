@@ -20,14 +20,8 @@
         while ((pos = numbers.find(delimiter)) != std::string::npos) {
             std::string number = numbers.substr(0, pos);
             int num = std::stoi(number);
-
-            if (num < 0) {
-                throw std::runtime_error("Negative numbers not allowed");
-            }
-
-            if (num <= 1000) {
-                sum += num;
-            }
+            checkNegative(num);
+            sum += checkRange(num);
 
             numbers.erase(0, pos + delimiter.length());
         }
