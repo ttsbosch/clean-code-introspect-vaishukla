@@ -5,6 +5,14 @@ int StringCalculator::add(string input){
   {
     return 0;
   }
-  return 1;
+  int sum = 0;
+  for (char c : input) 
+  {
+        if (std::isdigit(c)) 
+        {
+            sum += c - '0';
+        }
+    }
+  return sum;
 }
 
